@@ -1,18 +1,20 @@
 body {
-  background: #111;
-  color: #fff;
+  background: #fdfcfa;
+  color: #7c7ba5;
   text-align: center;
-  font-family: sans-serif;
+  font-family: PMingLiU;
   padding-top: 100px;
 }
 button {
-  background: #444;
+  background: #bdbedd;
   border: none;
-  color: #fff;
+  color: #fdfcfa;
   padding: 10px 20px;
   margin: 5px;
-  cursor: pointer;
+  cursor: pointer; 
+  font-family: PMingLiU;
 }
 button:hover {
-  background: #666;
+  background: #7c7ba5;
+ 
 }
