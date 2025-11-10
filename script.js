@@ -23,7 +23,7 @@ nextBtn.addEventListener("click", () => {
 
 
 prevBtn.addEventListener("click", () => {
-  current = (current - 1) % songs.length;
+  current = (current - 1 + songs.length) % songs.length;
   player.src = songs[current];
-  player.play().catch(e => console.log("播放被阻擋", e));
+  player.play();
 });
