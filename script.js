@@ -1,4 +1,4 @@
-const songs = ["distance.mp3, 沒出息.mp3"];
+const songs = ["distance.mp3", "沒出息.mp3"];
 let current = 0;
 
 const player = document.getElementById("player");
