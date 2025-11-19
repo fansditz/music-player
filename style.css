@@ -18,3 +18,14 @@ button:hover {
   background: #7c7ba5;
  
 }
+#info {
+  width: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 10px;
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+
