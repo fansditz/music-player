@@ -1,0 +1,82 @@
+/* === 全域設定 === */
+body {
+    background-color: #fafafa;
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+h1 {
+    color: #8c8cba;
+    margin-bottom: 10px;
+    font-size: 2rem;
+    text-align: center;
+}
+
+#info {
+    margin-bottom: 20px;
+    color: #555;
+    text-align: center;
+}
+
+/* === 播放器樣式 === */
+audio {
+    width: 100%;
+    max-width: 500px; /* 電腦版最大寬度 */
+    margin-bottom: 30px;
+    border-radius: 30px;
+}
+
+/* === 按鈕容器 (電腦版預設) === */
+.buttons {
+    display: flex;
+    gap: 15px;
+    width: 100%;
+    max-width: 600px;
+    justify-content: center;
+}
+
+/* === 按鈕外觀 === */
+button {
+    background-color: #b0b0d6; /* 淡紫色 */
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+    flex: 1; /* 讓按鈕平均分配空間 */
+    white-space: nowrap;
+}
+
+button:hover {
+    background-color: #9696c2;
+}
+
+/* === 手機版響應式設計 (關鍵區域) === */
+@media screen and (max-width: 600px) {
+    /* 在手機上，讓標題小一點 */
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    /* 在手機上，按鈕變成 2行x2列 的方塊 */
+    .buttons {
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* 兩欄 */
+        gap: 10px;
+    }
+
+    /* 加大按鈕，手指好點 */
+    button {
+        padding: 15px;
+        font-size: 18px;
+    }
+}
