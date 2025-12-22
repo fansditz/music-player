@@ -26,6 +26,54 @@ button:hover {
   text-align: center;
   gap: 10px;
   margin-top: 30px;
-  margin-bottom: 10px;
+  margin-bottom: 10px; 
 }
 
+.playlist {
+  background-color: #c5c6e0;
+  border-radius: 16px;
+  padding: 16px 20px;
+  width: 520px;
+  margin: 0 auto;
+  color: white;
+}
+
+.playlist-title {
+  text-align: left;
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+
+.playlist-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.playlist-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 10px;
+  font-size: 14px;
+  border-radius: 8px;
+}
+
+.playlist-item:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  cursor: pointer;
+}
+
+.playlist-item.active {
+  background-color: rgba(255, 255, 255, 0.25);
+  font-weight: bold;
+}
+
+.song-info {
+  text-align: left;
+}
+
+.song-time {
+  opacity: 0.8;
+  font-size: 13px;
+}
