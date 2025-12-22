@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>簡易音樂播放器</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="main-container">
+        <div class="player-card">
+            <div class="header">
+                <h1>🎵 音樂播放器</h1>
+            </div>
+
+            <div class="track-info">
+                <div class="cover-placeholder">💿</div>
+                <h2 id="song-title">選擇歌曲...</h2>
+                <p id="artist-name">簡易播放器</p>
+            </div>
+
+            <audio id="player" controls></audio>
+
+            <div class="controls-grid">
+                <button id="prev" class="btn-control">⏮️</button>
+                <button id="play" class="btn-control btn-play">▶️</button>
+                <button id="next" class="btn-control">⏭️</button>
+                <button id="shuffle" class="btn-control">🔀</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

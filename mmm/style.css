@@ -1,0 +1,121 @@
+/* === 全域重置與基礎設定 === */
+* {
+    box-sizing: border-box; /* 讓寬度計算更直覺 */
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; /* 通用字體堆疊 */
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); /* 柔和漸層背景 */
+    min-height: 100vh; /* 確保背景填滿畫面 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px; /* 避免卡片貼邊 */
+}
+
+/* === 主容器 (限制最大寬度) === */
+.main-container {
+    width: 100%;
+    max-width: 450px; /* 在大螢幕上限制寬度，像個 App */
+}
+
+/* === 播放器卡片 (核心設計) === */
+.player-card {
+    background: white;
+    border-radius: 24px; /* 圓角 */
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* 立體陰影 */
+    text-align: center;
+    width: 100%;
+}
+
+/* === 標題與資訊 === */
+h1 {
+    font-size: 1.2rem;
+    color: #888;
+    margin: 0 0 20px 0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.track-info {
+    margin-bottom: 25px;
+}
+
+.cover-placeholder {
+    font-size: 80px;
+    margin-bottom: 10px;
+    animation: rotate 10s linear infinite; /* 讓唱片轉動的小動畫 */
+    animation-play-state: paused; /* 預設暫停 */
+}
+
+/* 當播放時讓唱片轉動 (需要 JS 配合添加 class，或單純裝飾用) */
+/* 這裡我們先做靜態裝飾就好，保持簡單 */
+
+#song-title {
+    margin: 10px 0 5px;
+    color: #333;
+    font-size: 1.5rem;
+}
+
+#artist-name {
+    margin: 0;
+    color: #666;
+    font-size: 1rem;
+}
+
+/* === 音樂播放條 === */
+audio {
+    width: 100%;
+    margin-bottom: 25px;
+    border-radius: 50px;
+}
+
+/* === 按鈕控制區 (網格佈局) === */
+.controls-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 個按鈕並排 */
+    gap: 15px;
+    align-items: center;
+}
+
+/* 手機直立時，如果螢幕真的很窄，可以考慮變兩排 (選用) */
+@media (max-width: 350px) {
+    .controls-grid {
+        grid-template-columns: repeat(2, 1fr); /* 變成 2x2 */
+    }
+}
+
+/* === 按鈕樣式 === */
+.btn-control {
+    background-color: #f0f2f5;
+    border: none;
+    border-radius: 16px;
+    padding: 15px 0; /* 高度 */
+    font-size: 24px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.btn-control:active {
+    transform: scale(0.95); /* 按下去有縮小效果 */
+    background-color: #e4e6eb;
+}
+
+/* 播放按鈕特別顯眼 */
+.btn-play {
+    background-color: #6c5ce7; /* 漂亮的紫色 */
+    color: white;
+    grid-column: span 1; /* 佔據一格 */
+}
+
+.btn-play:hover {
+    background-color: #5b4bc4;
+}
+
+.btn-play:active {
+    background-color: #4a3db3;
+}
