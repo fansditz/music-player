@@ -14,8 +14,8 @@ const songs = [
   { title: "沒出息", src: "music/song.mp3", artist:"王世堅", cover: "image/song.jpg" },
   { title: "Distance", src: "music/distance.mp3", artist:"bixby", cover: "image/distance.jpg" },
   { title: "Intentions", src: "music/intentions.mp3", artist:"starfall", cover: "image/intentions.jpg" },
-  { title: "太陽與地球", src: "music/sun_and_earth.m4a", artist:"盧廣仲", cover: "image/song.jpg" },
-  { title: "左轉燈", src: "music/turn_left_light.mp3", artist:"超派", cover: "image/turn_left_light.jpg" }
+  { title: "太陽與地球", src: "music/sun_and_earth.m4a", artist:"盧廣仲", cover: "image/sun_and_earth.jpg" },
+  { title: "左轉燈", src: "music/turn_left_light.mp3", artist:"派偉俊", cover: "image/turn_left_light.jpg" }
 ];
 
 let currentindex = 0;
@@ -41,7 +41,11 @@ function loadSong(index) {
 
 function playSong() {
   player.play();
+
+  playBtn.innerHTML = "⏸️";
+  playBtn.classList.add("active");
 }
+
 
 // 隨機選下一首（不跟現在一樣）
 function shuffleSong() {
@@ -72,15 +76,6 @@ function prevSong() {
   loadSong(currentindex);
   playSong();
 }
-
-// 按鈕：播放/暫停（不要在這裡動 loop）
-playBtn.addEventListener('click', () => {
-  if (player.paused) player.play();
-  else player.pause();
-
-  // 要不要播放鍵也變色（可選）
-  playBtn.classList.toggle("active", !player.paused);
-});
 
 // 按鈕：隨機（只切狀態+變色，不立刻切歌）
 shuffleBtn.addEventListener("click", () => {

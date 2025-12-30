@@ -84,7 +84,7 @@ audio {
 /* === 按鈕控制區 (網格佈局) === */
 .controls-grid {
     display: grid;
-    grid-template-columns: repeat(5, 1fr); /* 5 個按鈕並排 */
+    grid-template-columns: repeat(4, 1fr); /* 4 個按鈕並排 */
     gap: 15px;
     align-items: center;
 }
@@ -99,30 +99,18 @@ audio {
 /* === 按鈕樣式 === */
 .btn-control {
     background-color: #f0f2f5;
-    border: none;
+    border:none;
     border-radius: 16px;
-    padding: 15px 0; /* 高度 */
+    padding: 15px 0;
     font-size: 24px;
     cursor: pointer;
     transition: all 0.2s ease;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-}
-
-.btn-control:active {
-    transform: scale(0.95); /* 按下去有縮小效果 */
-    background-color: #e4e6eb;
-}
-
-.btn-play {
-    background-color: #f0f2f5; 
-    color: white;
-    grid-column: span 1; /* 佔據一格 */
-}
-
-.btn-control:hover {
-    background-color: #E0CFFF;
 }
 
 .btn-control.active {
+    background-color: #E0CFFF;
+}
+
+.btn-control:hover {
     background-color: #E0CFFF;
 }
