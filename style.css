@@ -54,13 +54,13 @@ h1 {
 /* 當播放時讓唱片轉動 (需要 JS 配合添加 class，或單純裝飾用) */
 /* 這裡我們先做靜態裝飾就好，保持簡單 */
 
-#song-title {
+#title {
     margin: 10px 0 5px;
     color: #333;
     font-size: 1.5rem;
 }
 
-#artist-name {
+#artist {
     margin: 0;
     color: #666;
     font-size: 1rem;
