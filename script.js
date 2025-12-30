@@ -14,7 +14,7 @@ const songs = [
     { title: "Distance", src: "music/distance.mp3", artist:"bixby" },
     { title: "Intentions", src: "music/intentions.mp3", artist:"starfall"},
     { title: "太陽與地球", src: "music/sun_and_earth.m4a", artist:"盧廣仲" },
-    { title: "左轉燈", src: "music/turn_left_light.m4a", artist:"超派" }
+    { title: "左轉燈", src: "music/turn_left_light.mp3", artist:"超派" }
 ];
 
 let currentindex = 0;
