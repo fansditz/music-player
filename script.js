@@ -1,85 +1,81 @@
+// 取得 HTML 元素
+const player = document.getElementById('player');
+const songTitle = document.getElementById('title');
+const artistName = document.getElementById('artist');
+const prevBtn = document.getElementById('prev');
+const nextBtn = document.getElementById('next');
+const playBtn = document.getElementById('play');
+const shuffleBtn = document.getElementById('shuffle');
+
+// 歌曲清單 (請確認你的音樂檔案真的在 music 資料夾內)
+// 根據你的截圖，檔名應該是這些：
 const songs = [
-  { src: "music/distance.mp3", name: "distance", artist: "bixby", time: "1:57" },
-  { src: "music/song.mp3", name: "沒出息", artist: "王世堅", time: "0:21" },
-  { src: "music/intentions.mp3", name: "intentions", artist: "starfall", time: "3:45" }
+    { title: "沒出息", src: "music/song.mp3", artist:"王世堅" },
+    { title: "Distance", src: "music/distance.mp3",artist:"bixby" },
+    { title: "Intentions", src: "music/intentions.mp3", artist:"starfall"}
 ];
 
-let current = 0;
+let currentindex = 0;
 
-const player = document.getElementById("player");
-const nextBtn = document.getElementById("next");
-const prevBtn = document.getElementById("prev");
-const shuffleBtn = document.getElementById("shuffle");
-const repeatBtn = document.getElementById("repeat");
-
-const playlist = document.getElementById("playlist"); // ✅ 紫色區塊裡的 ul#playlist
-const titleEl = document.getElementById("song-title"); // ✅ 你 HTML 是 song-title
-
-function updateInfo() {
-  titleEl.textContent = `${songs[current].name} - ${songs[current].artist}`;
+// 初始化：載入第一首歌
+function loadSong(index) {
+    songTitle.innerText = songs[index].title;
+    player.src = songs[index].src;
+    artistName.innerText = songs[index].artist;
 }
 
-function loadSong(index = current) {
-  current = index;
-  player.src = songs[current].src;
-  updateInfo();
-  updateActiveSong();
+// 播放歌曲
+function playSong() {
+    player.play();
 }
 
-function updateActiveSong() {
-  document.querySelectorAll("#playlist .playlist-item").forEach((item, i) => {
-    item.classList.toggle("active", i === current);
-  });
+// 下一首
+function nextSong() {
+    currentindex++;
+    if (currentindex > songs.length - 1) {
+        currentindex = 0; // 回到第一首
+    }
+    loadSong(currentindex);
+    playSong();
 }
 
-// 產生播放清單（左：歌名+歌手，右：秒數）
-function renderPlaylist() {
-  playlist.innerHTML = ""; // 清空
-  songs.forEach((song, index) => {
-    const li = document.createElement("li");
-    li.className = "playlist-item";
-    li.dataset.index = index;
-    li.innerHTML = `
-      <span class="song-info">${song.name} - ${song.artist}</span>
-      <span class="song-time">${song.time ?? ""}</span>
-    `;
-    playlist.appendChild(li);
-  });
+// 上一首
+function prevSong() {
+    currentindex--;
+    if (currentindex < 0) {
+        currentindex = songs.length - 1; // 跳到最後一首
+    }
+    loadSong(currentindex);
+    playSong();
 }
 
-// 點擊清單切歌
-playlist.addEventListener("click", (e) => {
-  const item = e.target.closest(".playlist-item");
-  if (!item) return;
+// 隨機播放
+function shuffleSong() {
+    // 產生一個隨機索引，但不要跟現在的一樣
+    let newIndex;
+    do {
+        newIndex = Math.floor(Math.random() * songs.length);
+    } while (newIndex === currentindex && songs.length > 1);
+    
+    currentindex = newIndex;
+    loadSong(currentindex);
+    playSong();
+}
 
-  const index = Number(item.dataset.index);
-  loadSong(index);
-  player.play();
+// 事件監聽 (綁定按鈕功能)
+prevBtn.addEventListener('click', prevSong);
+nextBtn.addEventListener('click', nextSong);
+playBtn.addEventListener('click', () => {
+    if (player.paused) {
+        player.play();
+    } else {
+        player.pause();
+    }
 });
+shuffleBtn.addEventListener('click', shuffleSong);
 
-// 上/下一首
-nextBtn.addEventListener("click", () => {
-  loadSong((current + 1) % songs.length);
-  player.play();
-});
+// 當歌曲播完時，自動播下一首
+player.addEventListener('ended', nextSong);
 
-prevBtn.addEventListener("click", () => {
-  loadSong((current - 1 + songs.length) % songs.length);
-  player.play();
-});
-
-// 隨機
-shuffleBtn.addEventListener("click", () => {
-  loadSong(Math.floor(Math.random() * songs.length));
-  player.play();
-});
-
-// 重複
-repeatBtn.addEventListener("click", () => {
-  player.loop = !player.loop;
-  repeatBtn.textContent = player.loop ? "取消重複" : "重複播放";
-});
-
-// ✅ 初始化
-renderPlaylist();
-loadSong(0);
+// 一開始先載入第一首(但不自動播放)
+loadSong(currentindex);
