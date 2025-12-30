@@ -44,7 +44,7 @@ h1 {
     margin-bottom: 25px;
 }
 
-.cover-placeholder {
+.cover {
     font-size: 80px;
     margin-bottom: 10px;
     animation: rotate 10s linear infinite; /* 讓唱片轉動的小動畫 */
@@ -58,6 +58,14 @@ h1 {
     margin: 10px 0 5px;
     color: #333;
     font-size: 1.5rem;
+}
+
+.cover {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 12px;
 }
 
 #artist {
@@ -76,7 +84,7 @@ audio {
 /* === 按鈕控制區 (網格佈局) === */
 .controls-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 個按鈕並排 */
+    grid-template-columns: repeat(5, 1fr); /* 5 個按鈕並排 */
     gap: 15px;
     align-items: center;
 }
@@ -105,17 +113,16 @@ audio {
     background-color: #e4e6eb;
 }
 
-/* 播放按鈕特別顯眼 */
 .btn-play {
-    background-color: #6c5ce7; /* 漂亮的紫色 */
+    background-color: #f0f2f5; 
     color: white;
     grid-column: span 1; /* 佔據一格 */
 }
 
-.btn-play:hover {
-    background-color: #5b4bc4;
+.btn-control:hover {
+    background-color: #E0CFFF;
 }
 
-.btn-play:active {
-    background-color: #4a3db3;
+.btn-control.active {
+    background-color: #E0CFFF;
 }
