@@ -24,8 +24,6 @@
 - 歷史播放紀錄
 - 歌詞
 
-## 網站連結
-[網站連結](https://fansditz.github.io/music-player/)
-
 ## 畫面預覽
 ![播放器畫面](image/preview.png)
+[網站連結](https://fansditz.github.io/music-player/)
