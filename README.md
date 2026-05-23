@@ -6,7 +6,7 @@
 ![播放器畫面](image/preview.png)
 
 ## Live Demo
-🔗 點擊下方連結即可使用：
+🔗 點擊連結即可使用：
 https://fansditz.github.io/music-player/
 
 ## 專案目的
