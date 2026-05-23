@@ -2,6 +2,15 @@
 
 > 這是一個使用 HTML、CSS、JavaScript 製作的音樂播放器。
 
+## 畫面預覽
+![播放器畫面](image/preview.png)
+
+## Demo
+🔗 https://fansditz.github.io/music-player/
+
+## 專案目的
+> 練習前端互動功能與音樂播放器邏輯實作。
+
 ## 功能
 - 顯示歌曲資訊與封面
 - 播放 / 暫停音樂
@@ -24,6 +33,4 @@
 - 歷史播放紀錄
 - 歌詞
 
-## 畫面預覽
-![播放器畫面](image/preview.png)
 [網站連結](https://fansditz.github.io/music-player/)
